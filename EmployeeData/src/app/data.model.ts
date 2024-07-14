@@ -1,5 +1,9 @@
 export interface DataItem {
-    id: number;
-    value: string;
+    name: string,
+    email: string,
+    address: string,
+    mobile: string,
+    age: number,
+    gender: string
   }
   

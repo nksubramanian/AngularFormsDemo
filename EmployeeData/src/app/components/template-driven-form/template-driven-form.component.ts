@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {DataService } from '../../data.service'
+import {DataItem} from '../../data.model';
+
 @Component({
   selector: 'app-template-driven-form',
   standalone: true,
@@ -23,7 +25,7 @@ export class TemplateDrivenFormComponent {
     email: '',
     address: '',
     mobile: '',
-    age: null,
+    age: 0,
     gender: ''
   };
 
@@ -31,8 +33,15 @@ export class TemplateDrivenFormComponent {
   submitForm(form: any): void {
     console.log(this.myService.name);
     if (form.valid) {
-      this.myService.create(this.userDetails.name);
-      console.log('Form data:', this.myService.data.length);
+      const dataItem: DataItem = {
+        name: this.userDetails.name,
+        email: this.userDetails.email,
+        address: this.userDetails.address,
+        mobile: this.userDetails.mobile,
+        age: this.userDetails.age,
+        gender: this.userDetails.gender,
+      };
+      let a:number = this.myService.create(dataItem);
       this.responseMessage = this.userDetails.name;
     }
   }
