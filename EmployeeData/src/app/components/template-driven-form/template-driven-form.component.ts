@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import {DataService } from '../../data.service'
 @Component({
   selector: 'app-template-driven-form',
   standalone: true,
@@ -13,6 +13,10 @@ import { CommonModule } from '@angular/common';
 
 
 export class TemplateDrivenFormComponent {
+
+
+  constructor(private myService: DataService) { }
+
   userDetails = {
     name: '',
     email: '',
@@ -24,7 +28,7 @@ export class TemplateDrivenFormComponent {
 
 
   submitForm(form: any): void {
-    console.log("subbu");
+    console.log(this.myService.name);
     if (form.valid) {
       console.log('Form data:', this.userDetails);
     }
