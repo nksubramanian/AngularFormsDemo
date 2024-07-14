@@ -14,6 +14,7 @@ import {DataService } from '../../data.service'
 
 export class TemplateDrivenFormComponent {
 
+  responseMessage: string | null = null;
 
   constructor(private myService: DataService) { }
 
@@ -32,6 +33,7 @@ export class TemplateDrivenFormComponent {
     if (form.valid) {
       this.myService.create(this.userDetails.name);
       console.log('Form data:', this.myService.data.length);
+      this.responseMessage = this.userDetails.name;
     }
   }
 }
