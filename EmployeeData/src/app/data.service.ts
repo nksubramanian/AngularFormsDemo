@@ -13,10 +13,16 @@ export class DataService {
   public data: DataItem[] = [];
   private currentId = 0;
 
-  create(value: DataItem): number {
+  create(value: DataItem): string {
     //const newItem: DataItem = { id: this.currentId++, value };
+    let emailExists:boolean =  this.data.some(item => item.email === value.email);
+    if(emailExists)
+    {
+      return "email id already exists"
+    }
     this.data.push(value);
-    return this.data.length;
+    return "bio is successfully updated for the email"
+
   }
 
   read(): DataItem[] {

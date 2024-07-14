@@ -41,8 +41,8 @@ export class TemplateDrivenFormComponent {
         age: this.userDetails.age,
         gender: this.userDetails.gender,
       };
-      let a:number = this.myService.create(dataItem);
-      this.responseMessage = this.userDetails.name;
+      let a:string = this.myService.create(dataItem);
+      this.responseMessage = a;
     }
   }
 }
