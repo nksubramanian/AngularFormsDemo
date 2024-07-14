@@ -30,7 +30,8 @@ export class TemplateDrivenFormComponent {
   submitForm(form: any): void {
     console.log(this.myService.name);
     if (form.valid) {
-      console.log('Form data:', this.userDetails);
+      this.myService.create(this.userDetails.name);
+      console.log('Form data:', this.myService.data.length);
     }
   }
 }

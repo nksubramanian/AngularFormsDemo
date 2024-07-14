@@ -5,11 +5,11 @@ import { DataItem } from './data.model';
   providedIn: 'root'
 })
 export class DataService {
-
+ 
   public name:string = "subramanian";
   constructor() { }
 
-  private data: DataItem[] = [];
+  public data: DataItem[] = [];
   private currentId = 0;
 
   create(value: string): DataItem {
